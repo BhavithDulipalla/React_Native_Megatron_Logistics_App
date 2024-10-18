@@ -1,9 +1,10 @@
-import { Image, StyleSheet, Platform } from 'react-native';
+import { Image, StyleSheet, Platform, TextInput } from 'react-native';
 
 import { HelloWave } from '@/components/HelloWave';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
+import { ExternalLink } from '@/components/ExternalLink';
 
 export default function HomeScreen() {
   return (
@@ -20,6 +21,10 @@ export default function HomeScreen() {
         <HelloWave />
       </ThemedView>
       <ThemedView style={styles.stepContainer}>
+      <TextInput placeholder='Enter your Name' style={styles.input} secureTextEntry/>
+      <ExternalLink href="https://www.google.com">
+          <ThemedText type="link">Google</ThemedText>
+        </ExternalLink>
         <ThemedText type="subtitle">Step 1: Try it</ThemedText>
         <ThemedText>
           Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
@@ -55,6 +60,12 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: 8,
+  },
+  input: {
+    height: 30,
+    borderWidth: 3,
+    borderColor: 'red',
+    width: '100%'
   },
   stepContainer: {
     gap: 8,
